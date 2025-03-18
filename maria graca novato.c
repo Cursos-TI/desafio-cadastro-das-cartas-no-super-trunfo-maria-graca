@@ -67,4 +67,6 @@ int main(){
 scanf("carta: %d - pontos turisticos: %d - populacao: %d \n", carta2, pontosturisticos2, populacao2,estado2, cidade2,codigo2, areadacidade2);
 
 
+
 }
+
