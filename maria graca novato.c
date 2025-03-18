@@ -10,8 +10,7 @@ int main(){
         char codigo1 [3];
         float areadacidade1;
 
-      
-        printf("Digite a carta \n");
+            printf("Digite a carta \n");
         scanf("%d", &carta1);
      
         printf("Digite  os pontos turisticos:  \n");
