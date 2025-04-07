@@ -1,71 +1,75 @@
 #include <stdio.h>
-int main(){
-    printf("\Desafio Super Trunfo Maria Graca Novato\n");
 
-        int carta1;
-        int pontosturisticos1;
-        int populacao1;
-        char estado1 [1] ;
-        char cidade1[10];
-        char codigo1 [3];
-        float areadacidade1;
+// Definindo a estrutura de dados para armazenar as informações de uma carta
+typedef struct {
+    char estado[3];          // Estado agora será uma string de dois caracteres, ex: "CE"
+    char codigo[5];          // Código da carta (ex: A01, B03)
+    char cidade[100];        // Nome da cidade
+    int populacao;           // População da cidade
+    float area;              // Área da cidade em km²
+    float pib;               // PIB da cidade em bilhões de reais
+    int pontos_turisticos;   // Número de pontos turísticos na cidade
+} Carta;
 
-            printf("Digite a carta \n");
-        scanf("%d", &carta1);
-     
-        printf("Digite  os pontos turisticos:  \n");
-        scanf("%d", &pontosturisticos1);
-     
-        printf("Digite a populacao: \n");
-        scanf("%d", &populacao1);
-     
-        printf("Digite o estado: \n");
-        scanf("%c", &estado1);
+void lerCarta(Carta *carta) {
+    // Função para ler os dados de uma carta
+    printf("\nDigite os dados da carta:\n");
 
-        printf("Digite a cidade: \n");
-        scanf("%s", &cidade1);
+    // Leitura dos dados da carta
+    printf("Estado (de 'A' a 'H', ou duas letras como 'CE'): ");
+    scanf("%s", carta->estado);  // Agora aceitamos o estado como string de dois caracteres
 
-        printf("Digite o codigo da conta: \n");
-        scanf("%s", &codigo1);
+    printf("Código da carta (ex: A01, B03): ");
+    scanf("%s", carta->codigo);
 
-        printf("Digite area da cidade1: \n");
-        scanf("%f", &areadacidade1);
+    // Limpar o buffer do teclado antes de ler o nome da cidade
+    getchar();  // Consome o '\n' que fica no buffer após o scanf
 
-        printf("a carta é: %d - Pontos turisticos1: %d- populacao1 de: %f - o estado1 é: %c - a cidade1: %s o codigo1: %s - areadacidade1: %f \n", carta1, pontosturisticos1, populacao1,estado1, cidade1,codigo1, areadacidade1);
-         scan("carta: %d - pontos turisticos: %d - populacao: %d \n", carta1, pontosturisticos1, populacao1,estado1, cidade1,codigo1, areadacidade1);
-         int carta2; 
-         int pontosturisticos2;
-         int populacao2;
-         char estado2[1];
-         char cidade2[10];
-         char codigo2 [3];
-         float areadacidade2;
+    printf("Nome da cidade: ");
+    fgets(carta->cidade, sizeof(carta->cidade), stdin);
+    
+    // Remover o '\n' que o fgets adiciona no final do nome da cidade
+    carta->cidade[strcspn(carta->cidade, "\n")] = '\0';
 
-     printf("Digite a carta2: \n");
-      scanf("%d", &carta2);
+    printf("População: ");
+    scanf("%d", &carta->populacao);
 
-     printf("Digite  os pontos turisticos:  \n");
-   scanf("%d", &pontosturisticos2);
+    printf("Área (em km²): ");
+    scanf("%f", &carta->area);
 
-   printf("Digite a populacao: \n");
-   scanf("%d", &populacao2);
+    printf("PIB (em bilhões de reais): ");
+    scanf("%f", &carta->pib);
 
-   printf("Digite o estado: \n");
-   scanf("%c", &estado2);
-
-   printf("Digite a cidade: \n");
-   scanf("%s", &cidade2);
-
-   printf("Digite o codigo: \n");
-   scanf("%s", &codigo2);
-
-   printf("Digite area da cidade: \n");
-   scanf("%f", &areadacidade2);
-
-   printf("a carta é: %d - Pontos turisticos2: %d- populacao2 de: %f - o estado2 é: %c - a cidade2: %s o codigo2: %s - areadacidade2: %f \n", carta2, pontosturisticos2, populacao2,estado2, cidade2,codigo2, areadacidade2);
-scanf("carta: %d - pontos turisticos: %d - populacao: %d \n", carta2, pontosturisticos2, populacao2,estado2, cidade2,codigo2, areadacidade2);
-
-
-
+    printf("Número de pontos turísticos: ");
+    scanf("%d", &carta->pontos_turisticos);
 }
 
+void exibirCarta(Carta carta, int numeroCarta) {
+    // Função para exibir os dados da carta
+    printf("\nCarta %d:\n", numeroCarta);
+    printf("Estado: %s\n", carta.estado);
+    printf("Código: %s\n", carta.codigo);
+    printf("Nome da Cidade: %s\n", carta.cidade);
+    printf("População: %d\n", carta.populacao);
+    printf("Área: %.2f km²\n", carta.area);
+    printf("PIB: %.2f bilhões de reais\n", carta.pib);
+    printf("Número de Pontos Turísticos: %d\n", carta.pontos_turisticos);
+}
+
+int main() {
+    // Criando duas cartas para armazenar os dados
+    Carta carta1, carta2;
+
+    // Lendo os dados das cartas
+    printf("Preencha os dados da primeira carta:\n");
+    lerCarta(&carta1);
+
+    printf("\nPreencha os dados da segunda carta:\n");
+    lerCarta(&carta2);
+
+    // Exibindo os dados das cartas
+    exibirCarta(carta1, 1);
+    exibirCarta(carta2, 2);
+
+    return 0;
+}
