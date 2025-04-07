@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Definindo a estrutura de dados para armazenar as informações de uma carta
+// Definindo a estrutura de dados para armazenar as o dados de uma carta
 typedef struct {
     char estado[3];          // Estado agora será uma string de dois caracteres, ex: "CE"
     char codigo[5];          // Código da carta (ex: A01, B03)
