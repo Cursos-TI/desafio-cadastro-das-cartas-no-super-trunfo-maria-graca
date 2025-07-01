@@ -58,10 +58,10 @@ printf("\n=== Carta 1 ===\n");
     int carta2;
     int pontosTuristicos2;
     int populacao2;
-    char estado2[3];
-    char cidade2[20];
-    char codigo2[4];
-    float areaDaCidade2;
+    char estado2[2];
+    char cidade2[10];
+    char codigo2[3];
+    float areadacidade2;
     float PIB2;
 
     // Digitar informações da carta 2
@@ -72,7 +72,7 @@ printf("\n=== Carta 1 ===\n");
     scanf(" %2s", estado2);
 
     printf("Digite o código: ");
-    scanf("%3s", codigo2);
+    scanf("%s", codigo2);
 
     printf("Digite a cidade: ");
     scanf("%s", cidade2);
@@ -81,7 +81,7 @@ printf("\n=== Carta 1 ===\n");
     scanf("%d", &populacao2);
 
     printf("Digite a área da cidade: ");
-    scanf("%f", &areaDaCidade2);
+    scanf("%f", &areadacidade2);
 
     printf("Digite o PIB: ");
     scanf("%f", &PIB2);
@@ -96,7 +96,7 @@ printf("\n=== Carta 1 ===\n");
     printf("Código: %s\n", codigo2);
     printf("Cidade: %s\n", cidade2);
     printf("População: %d\n", populacao2);
-    printf("Área: %.2f km²\n", areaDaCidade2);
+    printf("Área: %.2f km²\n", areadacidade2);
     printf("PIB: %.2f\n", PIB2);
     printf("Pontos turísticos: %d\n", pontosTuristicos2);
 
